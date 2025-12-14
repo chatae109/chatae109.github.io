@@ -13,7 +13,6 @@ body{
   background: linear-gradient(135deg, var(--g1), var(--g2));
 }
 
-/* ===== 헤더 & 목차 ===== */
 header.top{
   position: sticky;
   top: 0;
@@ -42,7 +41,6 @@ header.top{
   background: rgba(255,255,255,.2);
 }
 
-/* ===== Hero ===== */
 .hero{
   min-height: 100vh;
   display: grid;
@@ -67,7 +65,6 @@ header.top{
 
 .accent{ color: #4cffb3; }
 
-/* ===== 일반 섹션 ===== */
 section:not(.hero){
   min-height: 100vh;
   padding: 100px 20px 40px;
@@ -80,7 +77,6 @@ section h1{
   margin-bottom: 12px;
 }
 
-/* ===== h1 주석 ===== */
 .has-note{
   position: relative;
   cursor: help;
@@ -103,23 +99,20 @@ section h1{
 .has-note:hover::after{
   opacity: 1;
 }
-/* ===== 화면이 작아질 때 목차 정렬 변경 ===== */
 @media (max-width: 768px){
 
-  /* 헤더 안 목차를 가운데로 */
   .toc-horizontal-left{
-    justify-content: center;   /* 가운데 정렬 */
-    flex-wrap: wrap;           /* 줄바꿈 허용 */
+    justify-content: center; 
+    flex-wrap: wrap;           
   }
 
-  /* 링크 크기 약간 줄이기 */
   .toc-link{
     font-size: 14px;
     padding: 8px 14px;
   }
 
-  /* 헤더 내부도 가운데 정렬 */
   header.top{
     text-align: center;
   }
 }
+
