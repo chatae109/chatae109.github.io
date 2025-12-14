@@ -1,0 +1,125 @@
+:root{
+  --g1: #050914;
+  --g2: #0b1020;
+}
+
+*{ box-sizing: border-box; }
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Noto Sans KR", sans-serif;
+  color: white;
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+}
+
+/* ===== 헤더 & 목차 ===== */
+header.top{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 14px 20px;
+  background: rgba(0,0,0,.55);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.toc-horizontal-left{
+  display: flex;
+  gap: 12px;
+}
+
+.toc-link{
+  text-decoration: none;
+  color: rgba(255,255,255,.9);
+  padding: 10px 16px;
+  border-radius: 999px;
+  background: rgba(255,255,255,.1);
+  font-size: 15px;
+}
+
+.toc-link:hover{
+  background: rgba(255,255,255,.2);
+}
+
+/* ===== Hero ===== */
+.hero{
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+}
+
+.hero-inner{
+  text-align: center;
+}
+
+.hero-title{
+  margin: 0;
+  font-size: clamp(48px, 6vw, 80px);
+  font-weight: 800;
+}
+
+.hero-sub{
+  margin-top: 12px;
+  font-size: 20px;
+  opacity: .9;
+}
+
+.accent{ color: #4cffb3; }
+
+/* ===== 일반 섹션 ===== */
+section:not(.hero){
+  min-height: 100vh;
+  padding: 100px 20px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+section h1{
+  font-size: 42px;
+  margin-bottom: 12px;
+}
+
+/* ===== h1 주석 ===== */
+.has-note{
+  position: relative;
+  cursor: help;
+}
+
+.has-note::after{
+  content: attr(data-note);
+  position: absolute;
+  top: -42px;
+  left: 0;
+  padding: 8px 12px;
+  font-size: 13px;
+  background: rgba(0,0,0,.85);
+  border-radius: 8px;
+  opacity: 0;
+  transition: .2s;
+  pointer-events: none;
+}
+
+.has-note:hover::after{
+  opacity: 1;
+}
+/* ===== 화면이 작아질 때 목차 정렬 변경 ===== */
+@media (max-width: 768px){
+
+  /* 헤더 안 목차를 가운데로 */
+  .toc-horizontal-left{
+    justify-content: center;   /* 가운데 정렬 */
+    flex-wrap: wrap;           /* 줄바꿈 허용 */
+  }
+
+  /* 링크 크기 약간 줄이기 */
+  .toc-link{
+    font-size: 14px;
+    padding: 8px 14px;
+  }
+
+  /* 헤더 내부도 가운데 정렬 */
+  header.top{
+    text-align: center;
+  }
+}
